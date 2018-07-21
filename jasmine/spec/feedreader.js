@@ -126,10 +126,10 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, () => {
                 feed0EntryLink = document.querySelectorAll('.feed .entry-link');
-            });
-            loadFeed(1, () => {
-                feed1EntryLink = document.querySelectorAll('.feed .entry-link');
-                done();
+                loadFeed(1, () => {
+                    feed1EntryLink = document.querySelectorAll('.feed .entry-link');
+                    done();
+                });
             });
         });
 
