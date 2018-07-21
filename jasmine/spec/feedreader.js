@@ -22,7 +22,7 @@ $(function() {
         /* Loop through each feed in the allFeeds object and ensures it has
          * a URL defined and that the URL is not empty.
          */
-        allFeeds.forEach((feed,feedIndex) => {
+        allFeeds.forEach((feed, feedIndex) => {
             it(`element #${feedIndex} should have a 'url' attribute`, () => {
                 expect(feed.url).toBeDefined();
             });
@@ -63,14 +63,11 @@ $(function() {
 
     /* Tests to validate menu selection */
     describe('The menu', () => {
-
         /* Ensure that the menu element is hidden by default. Analyze the HTML
          * and the CSS to validate the hiding/showing of the menu element.
          */
         it('menu is hidden by default', () => {
-            bodyClassValue = document.getElementsByTagName('body')[0]
-                .getAttribute('class');
-            expect(bodyClassValue).toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
          /* Test that the menu changes visibility when the menu icon is
@@ -81,16 +78,12 @@ $(function() {
             // Click when the menu is hidden. After the click the menu should
             // be visible to the user.
             $( ".menu-icon-link" ).trigger( "click" );
-            bodyClassValue = document.getElementsByTagName('body')[0]
-                .getAttribute('class');
-            expect(bodyClassValue).not.toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
 
             // Click when the menu is visible. After the click the menu should
             // be hidden from the user
             $( ".menu-icon-link" ).trigger( "click" );
-            bodyClassValue = document.getElementsByTagName('body')[0]
-                .getAttribute('class');
-            expect(bodyClassValue).toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
     });
